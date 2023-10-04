@@ -10,10 +10,10 @@ public class BTVN3 {
         System.out.print("Nhap password: ");
         String passwordInput = scan.nextLine();
         if(userName.equals(userNameInput) && password.equals(passwordInput) ) {
-            System.out.print("Đăng nhập thành công");
+            System.out.print("dang nhap thanh cong");
         }
         else {
-            System.out.println("Đăng nhập không thành công");
+            System.out.println("dang nhap khong thanh cong");
         }
     }
 }
