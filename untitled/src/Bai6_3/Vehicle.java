@@ -1,17 +1,5 @@
-// Lớp trừu tượng PhươngTiệnGiaoThông
-abstract class Vehicle {
+package Bai6_3;
 
-    private String tên;
-    private double tốcĐộ;
-
-    public Vehical(String tên, double tốcĐộ) {
-        this.tên = tên;
-        this.tốcĐộ = tốcĐộ;
-    }
-
-    public String getTên() {
-        return tên;
-    }
-
-    public abstract double tínhThờiGianĐếnNơi(double quãngĐường);
+public class Vehicle {
+    private double TimeArrive;
 }
