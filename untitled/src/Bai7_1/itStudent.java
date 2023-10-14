@@ -1,8 +1,8 @@
 package Bai7_1;
 
-import BTVN7.techMasterStudent;
+import BTVN7.TechMasterStudent;
 
-public  class itStudent extends techMasterStudent {
+public  class itStudent extends TechMasterStudent {
     private double javaScore;
     private double htmlScore;
     private double cssScore;

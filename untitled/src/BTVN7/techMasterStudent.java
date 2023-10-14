@@ -1,10 +1,10 @@
 package BTVN7;
 
-public abstract class techMasterStudent {
+public abstract class TechMasterStudent {
     private  String name;
     private  String object;
 
-    public techMasterStudent(String name, String object) {
+    public TechMasterStudent(String name, String object) {
         this.name = name;
         this.object = object;
     }

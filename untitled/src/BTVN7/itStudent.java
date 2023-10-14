@@ -1,11 +1,11 @@
 package BTVN7;
 
-public  class itStudent extends techMasterStudent{
+public  class ItStudent extends TechMasterStudent {
     private double javaScore;
     private double htmlScore;
     private double cssScore;
 
-    public itStudent(String name, String object, double javaScore, double htmlScore, double cssScore) {
+    public ItStudent(String name, String object, double javaScore, double htmlScore, double cssScore) {
         super(name, object);
         this.javaScore = javaScore;
         this.htmlScore = htmlScore;

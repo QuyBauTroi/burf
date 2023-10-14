@@ -1,10 +1,10 @@
 package BTVN7;
 
-public  class bizStudent extends techMasterStudent{
+public  class BizStudent extends TechMasterStudent {
     private double markettingScore;
     private double salesScore;
 
-    public bizStudent(String name, String object, double markettingScore, double salesScore) {
+    public BizStudent(String name, String object, double markettingScore, double salesScore) {
         super(name, object);
         this.markettingScore = markettingScore;
         this.salesScore = salesScore;
