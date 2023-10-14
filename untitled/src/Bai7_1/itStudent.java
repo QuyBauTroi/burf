@@ -2,12 +2,12 @@ package Bai7_1;
 
 import BTVN7.TechMasterStudent;
 
-public  class itStudent extends TechMasterStudent {
+public  class ITStudent extends TechMasterStudent {
     private double javaScore;
     private double htmlScore;
     private double cssScore;
 
-    public itStudent(String name, String object, double javaScore, double htmlScore, double cssScore) {
+    public ITStudent(String name, String object, double javaScore, double htmlScore, double cssScore) {
         super(name, object);
         this.javaScore = javaScore;
         this.htmlScore = htmlScore;

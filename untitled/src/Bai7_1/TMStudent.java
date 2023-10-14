@@ -1,10 +1,10 @@
 package Bai7_1;
 
-public abstract class techMasterStudent {
+public abstract class TMStudent {
     private  String name;
     private  String object;
 
-    public techMasterStudent(String name, String object) {
+    public TMStudent(String name, String object) {
         this.name = name;
         this.object = object;
     }
