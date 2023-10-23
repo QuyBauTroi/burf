@@ -161,7 +161,7 @@ public class LogInOutService {
     }
 // Log In End ------------------------------------------------------------------------------------------------------
 
-    private static void register(Scanner scanner, ArrayList<User>users){
+        public static void register(Scanner scanner, ArrayList<User>users){
         System.out.println("Tao tai khoan moi");
         System.out.println("Nhap username moi:");
         String username = scanner.nextLine();
