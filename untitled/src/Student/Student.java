@@ -1,0 +1,73 @@
+package Student;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Student implements Iclassification{
+    private String name;
+    private int age;
+    private double marks;
+    private String classification;
+
+    public Student(String name, int age, double marks) {
+        this.name = name;
+        this.age = age;
+        this.marks = marks;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getMarks() {
+        return marks;
+    }
+
+    public void setMarks(double marks) {
+        this.marks = marks;
+    }
+
+    public String getClassification() {
+        return classification;
+    }
+
+    public void setClassification(String classification) {
+        this.classification = classification;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", marks=" + marks +
+                ", classification='" + classification + '\'' +
+                '}';
+    }
+
+    @Override
+    public void classify() {
+        if (marks>=8){
+            classification = "Loai A";
+        }else if (marks<8&&marks>6.5){
+            classification = "Loai B";
+        }else classification = "Loai C";
+    }
+
+    @Override
+    public void display() {
+        System.out.println(this);
+    }
+}
