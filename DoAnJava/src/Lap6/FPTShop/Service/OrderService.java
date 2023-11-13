@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.Scanner;
 
-public class OrderService {
+/*public class OrderService {
     ProductService service = new ProductService();
     Utils utils = new Utils();
     public void order(Map<Integer,Product> productMap, Scanner scanner, Customer customer){
@@ -95,4 +95,4 @@ public class OrderService {
     public void directPayment(){
 
     }
-}
+} */

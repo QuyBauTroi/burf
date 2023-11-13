@@ -1,29 +1,26 @@
 package Lap6.FPTShop.Service;
 
-import Lap6.FPTShop.LogInOutService.ManagerAccountService;
 import Lap6.FPTShop.entities.Product;
 import Lap6.FPTShop.entities.STATUS;
 import Lap6.Utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class ProductService {
     Utils utils = new Utils();
+    Map<Integer,Product>productMap = new HashMap<>();
 
-    public void addProduct(Scanner scanner,Map<Integer,Product>productMap){
+    public void addProduct(Scanner scanner){
         System.out.println("Them san pham");
         System.out.println("Nhap so luong san pham ban muon them:");
         int n = utils.inputInt(scanner);
         for (int i = 0; i < n; i++) {
-            System.out.println("Nhap ten san pham thu " +(i+1)+":");
+            System.out.print("Nhap ten san pham thu " +(i+1)+":");
             String name = utils.inputString(scanner);
             boolean isValidStatus = false;
             STATUS status = null;
             while (!isValidStatus) {
-                System.out.println("Nhap tinh trang san pham: (NEW/OLD)");
+                System.out.print("Nhap tinh trang san pham: (NEW/OLD)");
                 String typeString = scanner.nextLine().toUpperCase();
                 try {
                     status = STATUS.valueOf(typeString);
@@ -32,27 +29,25 @@ public class ProductService {
                     System.out.println("Tinh trang nhap vao khong hop le. Vui long nhap lai.");
                 }
             }
-            System.out.println("Nhap gia tien :");
+            System.out.print("Nhap gia tien :");
             double price = utils.inputDouble(scanner);
-            System.out.println("Su mieu ta :");
+            System.out.print("Su mieu ta :");
             String description = utils.inputString(scanner);
-            System.out.println("Nhap so luong san pham thu" + (i+1) +":");
+            System.out.print("Nhap so luong san pham thu" + (i+1) +":");
             int quantity = utils.inputInt(scanner);
             Product product = new Product(name,price,description,quantity,status);
             productMap.put(product.getId(),product);
-            ManagerAccountService managerAccountService = new ManagerAccountService();
-            managerAccountService.menuManager(scanner);
         }
 
 
     }
 
-    public void viewProduct(Map<Integer,Product>productMap){
+    public void viewProduct(){
         System.out.println(productMap);
 
     }
 
-    public Product findProductById(Map<Integer,Product>productMap,Scanner scanner){
+    public Product findProductById(Scanner scanner){
         while (true) {
             int id  = utils.inputInt(scanner);
             if (productMap.containsKey(id)){
@@ -62,7 +57,7 @@ public class ProductService {
             }
         }
     }
-    public Product findProductByName(Map<String, Product> productMap,Scanner scanner){
+    public Product findProductByName(Scanner scanner){
         while (true){
             String name = utils.inputString(scanner);
             if (productMap.containsKey(name)){
@@ -73,7 +68,7 @@ public class ProductService {
         }
     }
 
-    public void deleteProduct(Scanner scanner,Map<Integer,Product>productMap){
+    public void deleteProduct(Scanner scanner){
         String choice = "";
         do {
             System.out.println("Nhap ten sach muon xoa: ");

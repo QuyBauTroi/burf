@@ -1,8 +1,8 @@
 package Lap6.FPTShop.entities;
 
-import Lap6.FPTShop.Account.SalesUser;
 
-public class Staff extends SalesUser {
+
+public class Staff {
     private static int autoId;
     private int id;
     private String name;

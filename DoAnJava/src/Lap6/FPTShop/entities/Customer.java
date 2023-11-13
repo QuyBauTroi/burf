@@ -2,7 +2,7 @@ package Lap6.FPTShop.entities;
 
 import Lap6.FPTShop.Account.User;
 
-public class Customer extends User {
+public class Customer  {
     private static int autoId;
     private int id;
     private String name;
@@ -11,8 +11,8 @@ public class Customer extends User {
     private double balance;
     private Orders orders;
 
-    public Customer( String name, String phoneNumber, String address, double balance) {
-        super();
+    public Customer(String name, String phoneNumber, String address, double balance) {
+
         this.id = ++autoId;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -21,11 +21,14 @@ public class Customer extends User {
     }
 
     public Customer( String name, String phoneNumber, String address) {
-        super();
         this.id = ++autoId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
+    }
+
+    public Customer() {
+
     }
 
 
