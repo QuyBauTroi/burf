@@ -9,8 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LogInOutService {
-    private  List<User> userList = new ArrayList<>();
-    private  User currentUser;
+    private User currentUser;
 
 
     // Phan menu
@@ -47,7 +46,7 @@ public class LogInOutService {
         System.out.println("Nhap password :");
         String password = scanner.nextLine();
 
-        User user = findUserByUsername(username);
+        User user = findUserByUsername(username,users);
         if (user == null) {
             System.out.println("Kiem tra lai username");
         }else if (!user.getPassword().equals(password)){
@@ -104,17 +103,18 @@ public class LogInOutService {
         }
     }
 
+
     // phan quen mk
     private  void forgotPassword(Scanner scanner, ArrayList<User>users){
         System.out.println("Quen mat khau");
         System.out.println("Moi ban nhap email :");
         String email = scanner.nextLine();
-        if (findUserByEmail(email) == null){
+        if (findUserByEmail(email,users) == null){
             System.out.println("Email khong ton tai ");
         }else {
             System.out.println("Nhap mat khau moi:");
             String newPassword = scanner.nextLine();
-            findUserByEmail(email).setPassword(newPassword);
+            findUserByEmail(email,users).setPassword(newPassword);
             System.out.println("Doi mat khau thanh cong");
         }
     }
@@ -122,7 +122,7 @@ public class LogInOutService {
     private void changeUsername(Scanner scanner,ArrayList<User> users){
         System.out.println("Nhap username moi:");
         String newUsername = scanner.nextLine();
-        if (findUserByUsername(newUsername) != null){
+        if (findUserByUsername(newUsername,users) != null){
             System.out.println("Username da ton tai , vui long nhap lai:");
             changeUsername(scanner,users);
         }else{
@@ -150,7 +150,7 @@ public class LogInOutService {
         if (!isValidEmail(newEmail)){
             System.out.println("Mat khau khong hop le , vui long nhap lai:");
             changeEmail(scanner, users);
-        }else if (findUserByEmail(newEmail) != null){
+        }else if (findUserByEmail(newEmail,users) != null){
             System.out.println("Email da ton tai, vui long nhap lai:");
             changeEmail(scanner,users);
         }
@@ -177,9 +177,9 @@ public class LogInOutService {
         String email= scanner.nextLine();
         System.out.println("Nhap mat khau :");
         String password = scanner.nextLine();
-        if (findUserByUsername(username) != null){
+        if (findUserByUsername(username,users) != null){
             System.out.println("Username da ton tai, vui long nhap lai:");
-        }else if (findUserByEmail(email) != null){
+        }else if (findUserByEmail(email,users) != null){
             System.out.println("Email da ton tai, vui long nhap lai:");
         }else if (!isValidEmail(email)){
             System.out.println("Email khong hop le, vui long nhap lai:");
@@ -187,7 +187,6 @@ public class LogInOutService {
             System.out.println("Mat khau khong hop le, vui long nhap lai :");
         }else {
             User newUser = new User(username,email,password);
-            userList.add(newUser);
             users.add(newUser);
             System.out.println("Tao tai khoan thanh cong ");
             inputMenu(scanner, users);
@@ -203,8 +202,8 @@ public class LogInOutService {
 
 // Register End -----------------------------------------------------------------------------------------------------
 
-    private  User findUserByUsername(String username){
-        for (User user : userList) {
+    private  User findUserByUsername(String username,ArrayList<User>users){
+        for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
@@ -212,8 +211,8 @@ public class LogInOutService {
         return null;
     }
 
-    private  User findUserByEmail(String email) {
-        for (User user : userList) {
+    private  User findUserByEmail(String email,ArrayList<User>users) {
+        for (User user : users) {
             if (user.getEmail().equals(email)) {
                 return user;
             }
