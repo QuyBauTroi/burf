@@ -20,12 +20,13 @@ public class StaffAccountService {
         do {
             System.out.println("1. Xem thong tin tat ca san pham");
             System.out.println("2. Xem thong tin tat ca don hang");
-            System.out.println("3. Xem thong tin ca nhan");
-            System.out.println("4. Thay doi username");
-            System.out.println("5. Thay doi email");
-            System.out.println("6. Thay doi password");
-            System.out.println("7. Dang xuat");
-            System.out.println("8. Duyệt đơn");
+            System.out.println("3. Xem thong tin don hang chua duoc duyet");
+            System.out.println("4. Xem thong tin don hang da duoc duyet");
+            System.out.println("5. Xem thong tin ca nhan");
+            System.out.println("6. Thay doi username");
+            System.out.println("7. Thay doi email");
+            System.out.println("8. Thay doi password");
+            System.out.println("9. Dang xuat");
             System.out.println("---------- Enter your choice -----------");
             choice = utils.inputInt(scanner);
             switch (choice){
@@ -36,22 +37,25 @@ public class StaffAccountService {
                     orderService.viewOrders(orders);
                     break;
                 case 3:
-                    userService.infoMenu(scanner, user);
+                    orderService.confirmOrder(scanner, orders, product);
                     break;
                 case 4:
-                    userService.updateUsername(scanner, users, user);
+                    orderService.viewApprovedOrders(orders,product);
                     break;
                 case 5:
-                    userService.updateEmail(scanner, users, user);
+                    userService.information(scanner, user);
                     break;
                 case 6:
-                    userService.updatePassword(scanner, user);
+                    userService.updateUsername(scanner, users, user);
                     break;
                 case 7:
-                    return;
-                case 8:
-                    orderService.approveOrder(scanner, orders, product);
+                    userService.updateEmail(scanner, users, user);
                     break;
+                case 8:
+                    userService.updatePassword(scanner, user);
+                    break;
+                case 9:
+                    return;
                 default:
                     System.out.println("Lua chon khong hop le, vui long chon lai:");
                     break;
